@@ -1,0 +1,3 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>EventHub</title><style>body{font-family:system-ui;max-width:900px;margin:50px auto;padding:0 20px}article{padding:20px 0;border-bottom:1px solid #ddd}</style></head>
+<body><h1>EventHub</h1><p>Upcoming events</p>{% for event in events %}<article><h2>{{ event.title }}</h2><p>{{ event.description }}</p><strong>{{ event.starts_at }}</strong></article>{% empty %}<p>No events yet.</p>{% endfor %}</body></html>
