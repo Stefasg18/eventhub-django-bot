@@ -1,0 +1,20 @@
+services:
+  web:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    depends_on: [db]
+  bot:
+    build: .
+    command: python bot.py
+    env_file: .env
+    depends_on: [web]
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: eventhub
+      POSTGRES_USER: eventhub
+      POSTGRES_PASSWORD: eventhub
+    volumes: [eventhub_data:/var/lib/postgresql/data]
+volumes:
+  eventhub_data:
